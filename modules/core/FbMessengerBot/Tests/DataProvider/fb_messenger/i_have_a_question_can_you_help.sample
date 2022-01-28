@@ -1,0 +1,63 @@
+array (
+  'object' => 'page',
+  'entry' =>
+  array (
+    0 =>
+    array (
+      'id' => '102504434829001',
+      'time' => 1591258646009,
+      'messaging' =>
+      array (
+        0 =>
+         array (
+          'sender' =>
+          array (
+            'id' => '2912335075508834',
+          ),
+          'recipient' =>
+          array (
+            'id' => '102504434829001',
+          ),
+          'timestamp' => 1591258645679,
+          'message' =>
+          array (
+            'mid' => 'm_tK29ukXQjRbTESGBQv4SHJ0EoONvDpZWHDAigrj8K63iiIhdHYEV_iuXxwUesBK66NvVwXb1ku6pnpFU691G1g',
+            'text' => 'I have a question. Can you help?',
+            'nlp' =>
+            array (
+              'entities' =>
+              array (
+                'sentiment' =>
+                array (
+                  0 =>
+                  array (
+                    'confidence' => 0.83573681116104,
+                    'value' => 'neutral',
+                  ),
+                ),
+                'location' =>
+                array (
+                  0 =>
+                  array (
+                    'suggested' => true,
+                    'confidence' => 0.24335193693416,
+                    'value' => '?',
+                    'type' => 'value',
+                  ),
+                ),
+              ),
+              'detected_locales' =>
+              array (
+                0 =>
+                array (
+                  'locale' => 'en_XX',
+                  'confidence' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+);

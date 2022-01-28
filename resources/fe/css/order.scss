@@ -1,0 +1,132 @@
+.order-container {
+  padding: 40px;
+  width: 100%;
+  background: white;
+  .row {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    .col-2 {
+      width: 50%;
+    }
+    .col {
+      width: 100%;
+    }
+    &:before,
+    &:after {
+      content: none;
+      display: block;
+    }
+  }
+  .header {
+    padding-bottom: 20px;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+    h1 {
+      font-size: 30px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .badge-success {
+    background: green;
+  }
+
+  .body {
+    padding: 20px 0;
+    padding-bottom: 40px;
+    width: 100%;
+    display: block;
+    p {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  .list {
+    display: flex;
+    margin-top: 10px;
+    .label {
+      width: 50%;
+      font-size: 16px;
+      color: #444;
+      text-align: left;
+    }
+    .value {
+      width: 50%;
+      font-size: 16px;
+      color: #444;
+      text-align: left;
+    }
+  }
+  .payment-status,
+  .order-status {
+    .hide {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+
+    .value {
+      display: flex;
+      align-items: center;
+    }
+
+    .status {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    .form-control {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    .button-cont {
+      margin-left: 10px;
+      button {
+        background: none;
+        border: none;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        &.active {
+          display: inline-flex;
+        }
+        .ion-icons {
+          font-size: 20px;
+          line-height: 20px;
+        }
+        img {
+          max-width: 18px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.back-container {
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+
+  align-items: center;
+  .ion-icon {
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  span {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}

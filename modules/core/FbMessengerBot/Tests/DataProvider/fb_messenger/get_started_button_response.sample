@@ -1,0 +1,31 @@
+array (
+  'object' => 'page',
+  'entry' => 
+  array (
+    0 => 
+    array (
+      'id' => '102504434829001',
+      'time' => 1591007761381,
+      'messaging' => 
+      array (
+        0 => 
+        array (
+          'sender' => 
+          array (
+            'id' => '2912335075508834',
+          ),
+          'recipient' => 
+          array (
+            'id' => '102504434829001',
+          ),
+          'timestamp' => 1591007760984,
+          'postback' => 
+          array (
+            'title' => 'Get Started',
+            'payload' => '{"type":"legacy_reply_to_message_action","message":"Get Started"}',
+          ),
+        ),
+      ),
+    ),
+  ),
+)

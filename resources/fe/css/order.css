@@ -1,0 +1,60 @@
+.order-container {
+  padding: 40px;
+  width: 100%;
+  background: white;
+}
+.order-container .row {
+  width: 100%;
+  display: flex;
+  margin: 0;
+}
+.order-container .row .col-2 {
+  width: 50%;
+}
+.order-container .row .col {
+  width: 100%;
+}
+.order-container .row:before, .order-container .row:after {
+  content: none;
+  display: block;
+}
+.order-container .header {
+  padding-bottom: 20px;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.order-container .header h1 {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+.order-container .badge-success {
+  background: green;
+}
+.order-container .body {
+  padding: 20px 0;
+  padding-bottom: 40px;
+  width: 100%;
+  display: block;
+}
+.order-container .body p {
+  font-weight: bold;
+  font-size: 16px;
+}
+.order-container .list {
+  display: flex;
+  margin-top: 10px;
+}
+.order-container .list .label {
+  width: 50%;
+  font-size: 16px;
+  color: #444;
+  text-align: left;
+}
+.order-container .list .value {
+  width: 50%;
+  font-size: 16px;
+  color: #444;
+  text-align: left;
+}

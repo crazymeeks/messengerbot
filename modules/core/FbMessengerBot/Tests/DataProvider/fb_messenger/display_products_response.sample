@@ -1,0 +1,38 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2912335075508834"
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Red Horse Beer",
+            "image_url":"https://beta-chatbot-payment.nuworks.ph/images/catalog/oCgtLWZVJqc3AgviHC4xKVKhZD6K8CTjtiurQN1j.png",
+            "subtitle":"Red Horse Beer",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://beta-chatbot-payment.nuworks.ph/images/catalog/oCgtLWZVJqc3AgviHC4xKVKhZD6K8CTjtiurQN1j.png",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://beta-chatbot-payment.nuworks.ph/"
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://beta-chatbot-payment.nuworks.ph/",
+                "title":"View Website"
+              },{
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }              
+            ]      
+          }
+        ]
+      }
+    }
+  }
+}' "https://graph.facebook.com/v7.0/me/messages?access_token=EAAutVasWkewBAArVweZCYSFh5UYbdxFSMMZAaDFmfDVCmAOdqtvIMJZBlbrLcGxSFfU7qBMYKJwBbWIi6p7aSvUEh2lSArjEzRfzP0aKZCT7SlfIhbH1IrHD1hikiplP5CZCW13JwZBnzcEOSWaAeRZA4HMyWZBiFzCy19N5OjlS21XjY0vaGcv2asu0330eossZD"

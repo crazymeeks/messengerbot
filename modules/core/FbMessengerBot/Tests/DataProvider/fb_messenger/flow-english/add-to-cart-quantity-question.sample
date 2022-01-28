@@ -1,0 +1,48 @@
+array (
+  'object' => 'page',
+  'entry' =>
+  array (
+    0 =>
+    array (
+      'id' => '111434060601424',
+      'time' => 1592842130496,
+      'messaging' =>
+      array (
+        0 =>
+        array (
+          'sender' =>
+          array (
+            'id' => '2933643720082184',
+          ),
+          'recipient' =>
+          array (
+            'id' => '111434060601424',
+          ),
+          'timestamp' => 1592842130306,
+          'message' =>
+          array (
+            'mid' => 'm_5IgFG2mWpmz_X59lftqexVJJwxXxVNhbtVOEgjvmFuG9JVqoz1Qz3IWQN6v9wZLJqcorfKklghDPIP5Zc2H1YA',
+            'text' => '2',
+            'nlp' =>
+            array (
+              'entities' =>
+              array (
+                'sentiment' =>
+                array (
+                  0 =>
+                  array (
+                    'confidence' => 0.77291458845139,
+                    'value' => 'neutral',
+                  ),
+                ),
+              ),
+              'detected_locales' =>
+              array (
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+)

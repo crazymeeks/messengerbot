@@ -1,0 +1,53 @@
+array (
+  'object' => 'page',
+  'entry' =>
+  array (
+    0 =>
+    array (
+      'id' => '102504434829001',
+      'time' => 1591258540984,
+      'messaging' =>
+      array (
+        0 =>
+        array (
+          'sender' =>
+          array (
+            'id' => '2912335075508834',
+          ),
+          'recipient' =>
+          array (
+            'id' => '102504434829001',
+          ),
+          'timestamp' => 1591258540770,
+          'message' =>
+          array (
+            'mid' => 'm_NvIpzINFbP4s9Jic8yGZ-J0EoONvDpZWHDAigrj8K63PzNprvEwHfO_S344gg79JDIMZnUzbyx-hQ9cVdI608Q',
+            'text' => 'Is anyone available to chat?',
+            'nlp' =>
+            array (
+              'entities' =>
+              array (
+                'sentiment' =>
+                array (
+                  0 =>
+                  array (
+                    'confidence' => 0.90676403045654,
+                    'value' => 'neutral',
+                  ),
+                ),
+              ),
+              'detected_locales' =>
+              array (
+                0 =>
+                array (
+                  'locale' => 'en_XX',
+                  'confidence' => 1,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+)

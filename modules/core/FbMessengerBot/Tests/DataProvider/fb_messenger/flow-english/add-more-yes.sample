@@ -1,0 +1,31 @@
+array (
+  'object' => 'page',
+  'entry' =>
+  array (
+    0 =>
+    array (
+      'id' => '111434060601424',
+      'time' => 1592844830837,
+      'messaging' =>
+      array (
+        0 =>
+        array (
+          'sender' =>
+          array (
+            'id' => '2933643720082184',
+          ),
+          'recipient' =>
+          array (
+            'id' => '111434060601424',
+          ),
+          'timestamp' => 1592844830597,
+          'postback' =>
+          array (
+            'title' => 'Yes',
+            'payload' => '{"action":"add_more_answer_yes"}',
+          ),
+        ),
+      ),
+    ),
+  ),
+)

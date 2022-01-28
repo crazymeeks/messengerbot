@@ -1,0 +1,35 @@
+array (
+  'object' => 'page',
+  'entry' =>
+  array (
+    0 =>
+    array (
+      'id' => '111462027282825',
+      'time' => 1593047746580,
+      'messaging' =>
+      array (
+        0 =>
+        array (
+          'sender' =>
+          array (
+            'id' => '3023897561035340',
+          ),
+          'recipient' =>
+          array (
+            'id' => '111462027282825',
+          ),
+          'timestamp' => 1593047708551,
+          'message' =>
+          array (
+            'mid' => 'm_6CMUMXoZxNu4qF5HFEnsSvSRWRj2dT7NNDhdYRHZfxuYQThFcfGIwyxHUbHyMs-dkaqWBI5OnHklIpoEa_PUmg',
+            'text' => 'Data Privacy',
+            'quick_reply' =>
+            array (
+              'payload' => '{"action":"data_privacy_policy"}',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+)

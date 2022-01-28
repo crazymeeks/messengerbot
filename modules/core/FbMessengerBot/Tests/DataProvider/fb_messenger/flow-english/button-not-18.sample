@@ -1,0 +1,35 @@
+array (
+  'object' => 'page',
+  'entry' =>
+  array (
+    0 =>
+    array (
+      'id' => '111462027282825',
+      'time' => 1592985919270,
+      'messaging' =>
+      array (
+        0 =>
+        array (
+          'sender' =>
+          array (
+            'id' => '3023897561035340',
+          ),
+          'recipient' =>
+          array (
+            'id' => '111462027282825',
+          ),
+          'timestamp' => 1592985919038,
+          'message' =>
+          array (
+            'mid' => 'm_HuMfYyD16WwcEDqbD9340fSRWRj2dT7NNDhdYRHZfxuRllluG1mtHiNGVmD2dheOULHnS_tCcSXEOtOw3eyHnA',
+            'text' => 'No',
+            'quick_reply' =>
+            array (
+              'payload' => '{"action":"answer_no"}',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+)

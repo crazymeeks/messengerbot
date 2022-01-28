@@ -1,0 +1,73 @@
+<main>
+    <get_started>
+        <bot>
+            <message>
+                <attachment>
+                    <type>template</type>
+                    <payload>
+                        <template_type>button</template_type>
+                        <text>Hi {{firstname}}! Welcome. Please choose from the options below:</text>
+                        <buttons>
+                            <type>web_url</type>
+                            <url>https://rockyourraket.nuworks.ph</url>
+                            <title>Visit messenger</title>
+                        </buttons>
+                        <buttons>
+                            <type>web_url</type>
+                            <url>https://rockyourraket.nuworks.ph</url>
+                            <title>Visit messenger</title>
+                        </buttons>
+                    </payload>
+                </attachment>
+            </message>
+            <!-- triggers -->
+            <next>getEmail</next>
+        </bot>
+    </get_started>
+    <displayProducts>
+        <bot>
+            <message>
+                <text>Do you want to continue?</text>
+                <quick_replies>
+                    <content_type>text</content_type>
+                    <title>Yes</title>
+                    <payload>
+                        <action>yes_continue</action>
+                    </payload>
+                </quick_replies>
+            </message>
+        </bot>
+    </displayProducts>
+    <yes_continue>
+        <bot>
+            <message>
+                <text>Hi {{Firstname}}, I need to get your address, please type it below:</text>
+            </message>
+            <next>getEmail</next>
+        </bot>
+    </yes_continue>
+    <getEmail>
+        <bot>
+            <message>
+                <text>We need your email as well :)</text>
+            </message>
+        </bot>
+    </getEmail>
+    <getProducts>
+        <class>\FbMessengerBot\Flow\Products</class>
+    </getProducts>
+    <default>
+        <bot>
+            <message>
+                <text>Sorry, I cannot understand your reply</text>
+                <quick_replies>
+                    <content_type>text</content_type>
+                    <title>Yes</title>
+                    <payload>
+                        <action>yes_continue</action>
+                    </payload>
+                </quick_replies>
+            </message>
+        </bot>
+    </default>
+</main>
