@@ -12,7 +12,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .vscode
-/config/database.php
-/config/mongodb.php
-/config/app.php
 /public/images/catalog

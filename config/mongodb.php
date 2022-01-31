@@ -2,8 +2,7 @@
 
 return [
     'uri' => env('MONGODB_HOST'),
-    // 'database' => env('MONGODB_NAME'),
-    'database' => config('app.env') == 'testing' ? 'testing_botplatform' : env('MONGODB_NAME'),
+    'database' => env('MONGODB_NAME'),
     'uriOptions' => [
         'username' => env('MONGODB_USERNAME'),
         'password' => env('MONGODB_PASSWORD')

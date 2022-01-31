@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
 
     protected function registerCustom()
     {
-        $database = config('app.env') == 'testing' ? 'testing_botdemo1' : env('MONGODB_NAME');
+        $database = config('app.env') == 'testing' ? ('testing_' . env('MONGODB_NAME')) : env('MONGODB_NAME');
         MongoConnection::setUpConnection(env('MONGODB_HOST'), ['username' => env('MONGODB_USERNAME'), 'password' => env('MONGODB_PASSWORD')], [])
           ->setDefaultDatabase($database)
           ->connect();

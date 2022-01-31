@@ -1,7 +1,7 @@
 
 ## Boiler Plate for Messenger Chatbot
 
-Nuworks boiler plate for messenger chatbot is written in [Laravel](https://laravel.com) 7.11.0.  It is intented for chatcommerce projects but could be use in different messenger bot projects as well.
+Boiler plate for messenger chatbot is written in [Laravel](https://laravel.com) 7.11.0.  It is intented for chatcommerce projects but could be use in different messenger bot projects as well.
 #
 ## Included features out of the box
 - Reports - Basic Dashboard reports.
@@ -21,6 +21,16 @@ Nuworks boiler plate for messenger chatbot is written in [Laravel](https://larav
   - `pecl install mongodb-1.9.0`
 - Install mongodb extension for php. Replace `x` by the version of php install on your machine.
   - `apt install php7.x-mongodb`
+- Install dependencies: `composer install`
+- Final step: Copy content of `.env.example` and update values of the following accdg to your mongodb setup:
+  - `MONGODB_HOST=mongodb://192.168.1.5/`
+  - `MONGODB_NAME=db_name`
+  - `MONGODB_USERNAME=root`
+  - `MONGODB_PASSWORD=root`
+#
+## Create CMS user
+To create a CMS user, type command below in your terminal:
+- ` php artisan messengerbot:admin`
 #
 ## Sample flow config(XML)
 ```xml
