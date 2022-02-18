@@ -30,6 +30,7 @@ class WebhookController extends Controller
      */
     public function postWebHook(Request $request)
     {   
+        \Log::info($request->all());
         if ($request->has('object')) {
             $entry = $request->entry[0];
             $response = WebhookResponseFactory::make($entry);

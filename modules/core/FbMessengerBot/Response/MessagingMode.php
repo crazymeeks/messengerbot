@@ -86,11 +86,19 @@ class MessagingMode extends AbstractMode
     {
         
         $fb_id = $server->getUserFacebookId();
+        /** @var \FbMessengerBot\HttpClient\Server $profile */
+        $profile = $server->getFacebookProfile();
         
         $chatter_model = new Chatter();
         $chatter = $chatter_model->findOne(['fb_id' => $fb_id]);
 
         if ($chatter) {
+            $chatter_model->updateOne(['fb_id' => $fb_id], [
+                '$set' => [
+                    'picture' => $profile->getPicture(),
+                ]
+            ]);
+            
             $data = [
                 'chatter_id' => $chatter->_id,
                 'admin_user_id' => null,
@@ -101,14 +109,13 @@ class MessagingMode extends AbstractMode
             
         } else {
             
-            $profile = $server->getFacebookProfile();
-            
             $chatter = new Chatter();
             
             $chatter = $chatter->insertOne([
                 'page_id' => $server->getPageId(),
                 'fb_id' => $fb_id,
                 'fullname' => $profile->getFirstName() . ' ' . $profile->getLastName(),
+                'picture' => $profile->getPicture(),
                 'read' => '0'
             ]);
 

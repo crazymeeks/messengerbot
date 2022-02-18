@@ -266,9 +266,11 @@ class Server
         $action = $this->getAction($flow_array);
 
         $this->checkChatMode($action, $flow_array);
-        
+        $facebookToken = $this->getRequest()->header('fbpritoken');
+
         // transform xml
         $transformed = $this->flowBuilder
+                            ->setFacebookToken($facebookToken)
                             ->setPostBackPayload($this->getPostBackPayload())
                             ->setRecipientId($this->getRecipientId())
                             ->transform($flow_array);
@@ -283,20 +285,6 @@ class Server
             });
 
         return $transformed;
-        // $this->checkChatMode($action, $flow_array)
-        //      ->translate($flow_array)
-        //      ->saveNextFlow($flow_array)
-        //      ->when(function($me) use($action){
-        //          if ($action == \FbMessengerBot\Flow\Contracts\FlowInterface::GET_STARTED) {
-        //             $payload = $me->getPostBackPayload();
-        //             $next_flow = app(NextFlowRepository::class);
-        //             $next_flow->deleteUserFlow($payload->fb_id);
-        //         }
-        //      });
-        
-        // $this->next_flows = $flow_array;
-
-        // return $this;
     }
 
     public function when(\Closure $callback)
@@ -358,77 +346,6 @@ class Server
     }
 
     /**
-     * Replace 'text' inside {{this}}
-     * 
-     * Translate 'payload' to json
-     *
-     * @param array $flow_array
-     * 
-     * @return $this
-     */
-    private function translate(array &$flow_array = [])
-    {
-
-        if (count($flow_array) <= 0) {
-            return $this;
-        }
-        
-        $profile = $this->getFacebookProfile();
-        
-        if (isset($flow_array['message']['attachment'])) {
-            if (isset($flow_array['message']['attachment']['payload']['text'])) {
-                $flow_array['message']['attachment']['payload']['text'] = findReplace($flow_array['message']['attachment']['payload']['text'], 'firstname', $profile->getFirstName());
-            }
-            // if button for webview is only, make buttons key a multiarray
-            if (isset($flow_array['message']['attachment']['payload']['buttons']) && !is_array(current($flow_array['message']['attachment']['payload']['buttons']))) {
-                $flow_array['message']['attachment']['payload']['buttons'] = [
-                    $flow_array['message']['attachment']['payload']['buttons']
-                ];
-            }
-            
-        } elseif (isset($flow_array['message']['quick_replies'])) {
-            
-            $flow_array['message']['text'] = findReplace($flow_array['message']['text'], 'firstname', $profile->getFirstName());
-            foreach($flow_array['message']['quick_replies'] as $key => $qr){
-                $flow_array['message']['quick_replies'][$key]['payload'] = json_encode($flow_array['message']['quick_replies'][$key]['payload']);
-                unset($key, $qr);
-            }
-            
-        } elseif (isset($flow_array['message'][0]['class'])) {// check if message > class key is an array
-            $objects = [];
-            
-            foreach($flow_array['message'] as $class){
-                $reflection = new \ReflectionClass($class['class']);
-                $object = $reflection->newInstanceArgs();
-
-                if (!$object instanceof \Chatbot\Api\FlowInterface) {
-                    throw new \Exception("The class " . get_class($object) . " should implement \Chatbot\Api\FlowInterface");
-                }
-                $objects[] = $object;
-            }
-            
-            $flow_array['message']['class'] = $objects;
-
-        }elseif (isset($flow_array['message']['class'])) {
-            
-            $namespace = $flow_array['message']['class'];
-            $class = new \ReflectionClass($namespace);
-            $object = $class->newInstanceArgs();
-            
-            if (!$object instanceof \Chatbot\Api\FlowInterface) {
-                throw new \Exception("The class " . get_class($object) . " should implement \Chatbot\Api\FlowInterface");
-            }
-            
-            $flow_array['message']['class'] = $object;
-            
-        } elseif (isset($flow_array['message']['text'])) {
-            $flow_array['message']['text'] = findReplace($flow_array['message']['text'], 'firstname', $profile->getFirstName());
-        }
-        
-        return $this;
-    }
-
-    /**
      * Save next flow to database.
      * 
      * This flow may be a validation of user's required next flow
@@ -465,8 +382,6 @@ class Server
             $next_flow->saveNextFlow($this->flowBuilder->getNextFlow(), $payload->fb_id);
             return $this;
         }
-        
-        // $next_flow->removeNextFlow($payload->fb_id);
         return $this;
     }
 
@@ -536,73 +451,13 @@ class Server
     public function getFacebookProfile()
     {
 
-        $fb_id = $this->getUserFacebookId();
+        $retrievedProfile = $this->flowBuilder->retrievedFacebookProfile();        
 
-        if (isset($this->container[$fb_id])) {
-            return $this;
-        }
-
-        /**
-         * IMPORTANT!!!
-         * DO NOT REMOVE this commented code!
-         * This has been comment in because
-         * of issue regarding app permission
-         * on facebook
-         */
-        /*$primary_token = $this->getRequest()->header('fbpritoken');
-        
-        $facebook = new FacebookUserProfile($this->curl);
-        $response = $facebook->setToken($primary_token)
-                             ->setUserFacebookId($this->getUserFacebookId())
-                             ->fields([
-                                 'first_name',
-                                 'last_name',
-                                 'picture'
-                             ])
-                             ->get();
-        
-        if (!in_array($response->status, [200, 201])) {
-            throw new \FbMessengerBot\Exceptions\BotResponseException($response->content);
-        }
-                    
-        $response = json_decode($response->content);*/
-        
-        $response = new \stdClass();
-        $response->first_name = 'Dear';
-        $response->last_name = null;
-
-        $this->mapFacebookProfileFields($response);
-        $this->container[$fb_id] = $fb_id;
-        
+        $this->setFirstName($retrievedProfile->first_name)
+             ->setLastName($retrievedProfile->last_name)
+             ->setPicture($retrievedProfile->picture);
         return $this;
         
-    }
-
-    private function mapFacebookProfileFields(\stdClass $response)
-    {
-        if (property_exists($response, 'first_name')) {
-            $firstname = $response->first_name;
-        } else {
-            
-            $firstname = $response->name;
-            
-        }
-
-        if (property_exists($response, 'last_name')) {
-            $lastname = $response->last_name;
-        } else {
-            $lastname = $response->name;
-        }
-
-        if (property_exists($response, 'picture')) {
-            $picture = $response->picture;
-        } else {
-            $picture = null;
-        }
-
-        $this->setFirstName($firstname)
-             ->setLastName($lastname)
-             ->setPicture($picture);
     }
 
     public function setFirstName(string $firstname)
