@@ -33,7 +33,7 @@
 
                     <div v-if="conversation.admin_user_id == null">
                         <div class="incoming_msg" style="margin-bottom: 10px;">
-                            <div class="incoming_msg_img"> <img style="border-radius: 100px;" src="{{$chatter->picture}}" alt="{{$chatter->fullname}}">
+                            <div class="incoming_msg_img"> <img style="border-radius: 100px;" src="{{$chatter->picture ? $chatter->picture : 'https://ptetutorials.com/images/user-profile.png'}}" alt="{{$chatter->fullname}}">
                             </div>
                             <div class="received_msg">
                                 <div class="received_withd_msg">
