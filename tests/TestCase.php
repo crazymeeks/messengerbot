@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use HaydenPierce\ClassFinder\ClassFinder;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -55,42 +56,20 @@ abstract class TestCase extends BaseTestCase
         
         \Mockery::close();
 
-        $fbflow = new \App\Models\FacebookFlow();
-        $fbflow->deleteMany();
-
-        $chatter = new \App\Models\Chatter();
-        $convo_reply = new \App\Models\ConversationReply();
-
-        $chatter->deleteMany();
-        $convo_reply->deleteMany();
-
-        $role = new \App\Models\Role();
-        $role->deleteMany();
-
-        $permission = new \App\Models\Permission();
-        $permission->deleteMany();
-
-        $adminUser = new \App\Models\AdminUser();
-        $adminUser->deleteMany();
-
-        $catalog = new \App\Models\Catalog();
-        $catalog->deleteMany();
-
-        $orderCatalog = new \App\Models\OrderCatalog();
-        $orderCatalog->deleteMany();
-
-        $order = new \App\Models\Order();
-        $order->deleteMany();
-        
-        $cart = new \App\Models\Cart();
-        $cart->deleteMany();
-
-        $shipping = new \App\Models\ShippingDetails();
-        $shipping->deleteMany();
-
-        $nextFlow = new \App\Models\NextFlow();
-        $nextFlow->deleteMany();
+        $this->resetDatabase();
 
         parent::tearDown();
+    }
+
+    protected function resetDatabase()
+    {
+        if (config('app.env') === 'testing') {
+            $models = ClassFinder::getClassesInNamespace('App\Models');
+            unset($models[0]);
+            foreach($models as $model){
+                $instance = $this->app->make($model);
+                $instance->deleteMany();
+            }
+        }
     }
 }

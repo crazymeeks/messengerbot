@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbb337ebe458a08fbb63011301c329d2",
+    "content-hash": "eff9ec6689b0e7b4cbd12b3467f7a605",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -216,12 +216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/crazymeeks/messengerbot-flow-builder.git",
-                "reference": "f812866148f24f67e0cb968ac2feca28f1ac9599"
+                "reference": "6c7837aa10c1d7fcbba782ebe72d2eaa6465c323"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/crazymeeks/messengerbot-flow-builder/zipball/f812866148f24f67e0cb968ac2feca28f1ac9599",
-                "reference": "f812866148f24f67e0cb968ac2feca28f1ac9599",
+                "url": "https://api.github.com/repos/crazymeeks/messengerbot-flow-builder/zipball/6c7837aa10c1d7fcbba782ebe72d2eaa6465c323",
+                "reference": "6c7837aa10c1d7fcbba782ebe72d2eaa6465c323",
                 "shasum": ""
             },
             "require": {
@@ -234,12 +234,12 @@
             "default-branch": true,
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Crazymeeks\\MessengerBot\\": "src/MessengerBot"
-                },
                 "files": [
                     "src/MessengerBot/helper/custom_function.php"
-                ]
+                ],
+                "psr-4": {
+                    "Crazymeeks\\MessengerBot\\": "src/MessengerBot"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -256,7 +256,7 @@
                 "issues": "https://github.com/crazymeeks/messengerbot-flow-builder/issues",
                 "source": "https://github.com/crazymeeks/messengerbot-flow-builder/tree/master"
             },
-            "time": "2022-01-28T10:15:00+00:00"
+            "time": "2022-02-17T13:04:06+00:00"
         },
         {
             "name": "crazymeeks/php-mongodb",
@@ -940,6 +940,51 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "haydenpierce/class-finder",
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/hpierce1102/ClassFinder.git",
+                "reference": "d6c68f386c764674c59ee336d1dfca35aada5f90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/hpierce1102%2FClassFinder/repository/archive.zip?sha=d6c68f386c764674c59ee336d1dfca35aada5f90",
+                "reference": "d6c68f386c764674c59ee336d1dfca35aada5f90",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HaydenPierce\\ClassFinder\\": "src/",
+                    "HaydenPierce\\ClassFinder\\UnitTest\\": "test/unit"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hayden Pierce",
+                    "email": "hayden@haydenpierce.com"
+                }
+            ],
+            "description": "A library that can provide of a list of classes in a given namespace",
+            "support": {
+                "issues": "https://gitlab.com/api/v4/projects/7670051/issues"
+            },
+            "time": "2021-01-05T20:50:49+00:00"
         },
         {
             "name": "ixudra/curl",
