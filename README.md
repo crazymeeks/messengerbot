@@ -45,7 +45,7 @@ To create a CMS user, type command below in your terminal:
                         <text>Hi {{firstname}}! Welcome. Please choose from the options below:</text>
                         <buttons>
                             <type>web_url</type>
-                            <url>https://rockyourraket.nuworks.ph</url>
+                            <url>https://example.com</url>
                             <title>Visit messenger</title>
                         </buttons>
                         <buttons>
