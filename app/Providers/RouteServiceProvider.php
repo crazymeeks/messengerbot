@@ -75,18 +75,6 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
 
-        // $allowed_origins = '*';
-
-        // if (config('app.env') == 'staging') {
-            
-        //     #$allowed_origins = 'http://staging.smbdelivers.com';
-        //     header('Access-Control-Allow-Origin: ' . $allowed_origins);
-        //     #header('Vary: Origin');
-        // } else {
-        //     if (config('app.env') != 'local') {
-        //         header('Access-Control-Allow-Origin: ' . $allowed_origins);
-        //     }
-        // }
 
         Route::prefix('api')
             ->middleware('api')
