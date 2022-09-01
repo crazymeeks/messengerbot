@@ -50,7 +50,7 @@ To create a CMS user, type command below in your terminal:
                         </buttons>
                         <buttons>
                             <type>web_url</type>
-                            <url>https://rockyourraket.nuworks.ph</url>
+                            <url>https://sample.ph</url>
                             <title>Visit messenger</title>
                         </buttons>
                     </payload>
